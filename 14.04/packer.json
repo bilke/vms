@@ -1,0 +1,12 @@
+{
+	"builders": [{
+	  "type": "docker",
+	  "image": "ubuntu:14.04",
+	  "commit": true
+	}],
+  "provisioners": [{
+    "type": "ansible-local",
+    "playbook_file": "playbook.yml"
+  }],
+  "post-processors": ["vagrant"]
+}

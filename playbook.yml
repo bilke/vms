@@ -1,0 +1,27 @@
+---
+- hosts: all
+  roles:
+    - base
+    - role: AlbanAndrieu.gcc
+      gcc_version: -4.9
+    - role: AlbanAndrieu.gcc
+      gcc_version: -5
+    - role: kfieldho.cmake
+      cmake_version: 3.4
+      cmake_minor_version: 3
+    - role: geerlingguy.git
+      become: yes
+    - role: pedrocarmona.github-git-lfs
+      become: yes
+    - role: geerlingguy.pip
+      become: yes
+      pip_install_packages:
+        - name: conan
+          version: "0.26.1"
+
+  tasks:
+    - name: ccache config
+      copy:
+        dest: /etc/ccache.conf
+        content: 'sloppiness = pch_defines,time_macros'
+      become: yes

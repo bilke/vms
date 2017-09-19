@@ -1,8 +1,12 @@
 {
 	"builders": [{
-	  "type": "docker",
-	  "image": "ubuntu:14.04",
-	  "commit": true
+		"type": "docker",
+		"image": "ubuntu:14.04",
+		"commit": true,
+		"changes": [
+			"ENV CC gcc-4.9",
+			"ENV CXX g++-4.9"
+		]
 	}],
 	"provisioners": [
 	{

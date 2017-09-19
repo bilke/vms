@@ -1,10 +1,11 @@
 ---
 - hosts: all
   roles:
-    # - base
-    #- role: AlbanAndrieu.gcc
-    #  gcc_version: -4.9
-    #- role: AlbanAndrieu.gcc
+    - base
+    - ccache
+    - role: gcc
+      gcc_version: -4.9
+    #- role: gcc
     #  gcc_version: -5
     - role: kfieldho.cmake
       cmake_version: 3.4
@@ -18,10 +19,3 @@
       pip_install_packages:
         - name: conan
           version: "0.26.1"
-
-  tasks:
-    - name: ccache config
-      copy:
-        dest: /etc/ccache.conf
-        content: 'sloppiness = pch_defines,time_macros'
-      become: yes

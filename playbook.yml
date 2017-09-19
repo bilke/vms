@@ -1,11 +1,11 @@
 ---
 - hosts: all
   roles:
-    - base
-    - role: AlbanAndrieu.gcc
-      gcc_version: -4.9
-    - role: AlbanAndrieu.gcc
-      gcc_version: -5
+    # - base
+    #- role: AlbanAndrieu.gcc
+    #  gcc_version: -4.9
+    #- role: AlbanAndrieu.gcc
+    #  gcc_version: -5
     - role: kfieldho.cmake
       cmake_version: 3.4
       cmake_minor_version: 3

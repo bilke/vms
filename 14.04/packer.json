@@ -4,9 +4,17 @@
 	  "image": "ubuntu:14.04",
 	  "commit": true
 	}],
-  "provisioners": [{
-    "type": "ansible-local",
-    "playbook_file": "playbook.yml"
-  }],
-  "post-processors": ["vagrant"]
+	"provisioners": [
+	{
+		"type": "shell",
+		"inline": [
+			"apt-get update",
+			"apt-get install python ca-certificates -yq"
+		]
+	},
+	{
+		"type": "ansible",
+		"playbook_file": "../playbook.yml"
+	}
+	]
 }
